@@ -1,0 +1,133 @@
+ScreenManagement:
+    Dices:
+    History:
+
+<Dices>:
+    name: "game"
+    label_wid: my_custom_label    # O texto que será colocado
+    BoxLayout:
+        orientation: "vertical"
+
+
+        padding: 20
+        spacing: 20
+
+        BoxLayout:
+            size_hint: 1, 0.5
+            orientation: "horizontal"
+            ImageButton:             # Botão escondido
+                source: "asserts/dragon.png"
+                on_release: root.mostra()
+
+            Label:
+                id: my_custom_label
+                text: ''
+                font_size: dp(40)
+
+
+            ImageButton:
+                source: "asserts/dragon.png"
+                on_press: root.quinta_serie()
+                #on_release: root.current = "history"
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.2
+            font_size: "30dp"
+
+            BoxLayout:
+                orientation: "vertical"
+                Label:
+                    text: "How many dices?"
+                Label:
+                    text: str(slider_id.value)
+                Slider:
+                    id:slider_id
+                    min:1
+                    max:20
+                    value: 1
+                    step: 1
+                    on_value: root.roll_more(slider_id.value)
+
+            BoxLayout:
+                orientation:"horizontal"
+
+
+                BoxLayout:
+                    orientation:"vertical"
+
+                    Label:
+                        text:"Advantage"
+                    CheckBox:
+                        on_active:root.vantagem()
+
+                BoxLayout:
+                    orientation: "vertical"
+
+                    Label:
+                        text: "Neutro"
+                    CheckBox:
+                        on_active:root.neutro()
+
+                BoxLayout:
+                    orientation: "vertical"
+
+                    Label:
+                        text: "Disadvantage"
+                    CheckBox:
+                        on_active:root.desvantagem()
+
+        GridLayout:
+            cols: 3
+            rows: 3
+
+            ImageButton:
+                source:"asserts/d20new.png"
+                on_press: root.rolar_dados(20)
+
+
+            ImageButton:
+                source: "asserts/d12new.png"
+                on_press: root.rolar_dados(12)
+
+
+
+            ImageButton:
+                source:"asserts/d10new.png"
+                on_press: root.rolar_dados(10)
+
+            ImageButton:
+                source:"asserts/d8.png"
+                on_press: root.rolar_dados(8)
+
+            ImageButton:
+                source:"asserts/d6new.png"
+
+                on_press: root.rolar_dados(6)
+
+            ImageButton:
+                source:"asserts/d4new.png"
+                on_press: root.rolar_dados(4)
+
+
+<History>:
+    name: "history"
+    BoxLayout:
+        orientation: "vertical"
+
+        Label:
+            text: "Testando"
+
+        Button:
+            text: "Back"
+            on_release: app.root.current = "game"
+
+<ImageButton@Button>:
+    source: "asserts/dragon.png"
+    size: 250,250
+    background_normal: ' '
+    background_color: (0, 0, 0, 1)
+    Image:
+        source: root.source
+        pos:root.pos
+        size: root.size
