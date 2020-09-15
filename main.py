@@ -8,22 +8,18 @@ from kivy.core.audio import SoundLoader
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 
-'''
-    Programa que vai rolar os dados de d&d como o anterior fazia,
-    mas agora usando da biblioteca kivy e de PO
 
-'''
 
 class Dices(Screen,FloatLayout, ButtonBehavior):
 
-    # A seed nao esta funcionando
-    r.seed = time()  # Gerando a seed para o numero aleatorio
+    r.seed = time() 
 
     label_wid = ObjectProperty()
     info = StringProperty()
 
 
     # Para vantagem o valor é 1, para desvantagem o valor é -1. Para o valor neutro o valor é 0
+
 
     global determinacao_de_vantagem_e_desvantagem
     determinacao_de_vantagem_e_desvantagem = 0
@@ -34,8 +30,6 @@ class Dices(Screen,FloatLayout, ButtonBehavior):
     def roll_more(self, number):
         '''
             Com isso eu consigo fazer rolar os dados o numero suficiente de vezes para a quantidade de dados.
-
-            Estava funcionando, mas por algum motivo escuso parou de funcionar
         '''
         global rolls
         rolls = number
@@ -87,7 +81,6 @@ class Dices(Screen,FloatLayout, ButtonBehavior):
         print(valores)
 
         # Colocar a parte para vantagem, desvantagens e cenarios neutros
-        #TODO: NAO ESTA PEGANDO DIREITO ISSO
         if determinacao_de_vantagem_e_desvantagem == 1:
             print("Passou por aqui")
             soma = max(valores)
@@ -102,10 +95,10 @@ class Dices(Screen,FloatLayout, ButtonBehavior):
         self.label_wid.text = str(soma)
 
 
-    def mostra(self):
+    def show(self):
         self.label_wid.text = "Made by Teitei"
 
-    def quinta_serie(self):
+    def first_grade(self):
         fart = SoundLoader.load("assets/Sounds/Fart.wav")
         fart.play()
 
