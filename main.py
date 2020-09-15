@@ -13,14 +13,6 @@ from kivy.lang import Builder
     mas agora usando da biblioteca kivy e de PO
 
 '''
-class ScreenManagement(ScreenManager):
-    pass
-
-class MainScreen(Screen):
-    pass
-
-class History(Screen):
-    pass
 
 class Dices(Screen,FloatLayout, ButtonBehavior):
 
