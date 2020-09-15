@@ -106,7 +106,7 @@ class Dices(Screen,FloatLayout, ButtonBehavior):
         self.label_wid.text = "Made by Teitei"
 
     def quinta_serie(self):
-        fart = SoundLoader.load("Fart.wav")
+        fart = SoundLoader.load("assets/Sounds/Fart.wav")
         fart.play()
 
 
