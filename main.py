@@ -8,7 +8,11 @@ from kivy.core.audio import SoundLoader
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
 
+class ScreenManagement(ScreenManager):
+    pass
 
+class History(Screen):
+    pass
 
 class Dices(Screen,FloatLayout, ButtonBehavior):
 
